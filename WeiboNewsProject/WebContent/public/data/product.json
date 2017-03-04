@@ -1,0 +1,15 @@
+{"nodes": [
+  {"name": "Environment"},
+
+  {"name": "Harmful substances"}
+
+],
+  "links": [
+
+    {"source": "Environment", "target": "Harmful substances", "value": 0.00604275542495656}
+  
+  ]}
+  
+  
+  
+  

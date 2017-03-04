@@ -1,0 +1,7 @@
+{"id":411,"name":"点1","pId":0,"children":[
+
+{"children":[{"children":[{"children":[{"children":[],"id":7,"name":"一级3子节点","pId":3}],"id":3,"name":"一级2子节点","pId":2}],"id":2,"name":"一级1子节点","pId":1}],"id":1,"name":"一级父节点","pId":0}
+,{"children":[{"children":[{"children":[],"id":8,"name":"二级2子节点","pId":5}],"id":5,"name":"二级1子节点","pId":4},{"children":[],"id":6,"name":"二级1子节点2","pId":4}],"id":4,"name":"二级父节点","pId":0}
+
+
+]}
