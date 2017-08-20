@@ -128,7 +128,7 @@ public class YunshanSqlEvent {
 		try {
 			conn = dbHelper.getYunshanConnection();
 //			 String sql = "SELECT * FROM yunshan_event WHERE event_summary LIKE ?";
-			String sql = "SELECT * FROM yunshan_event WHERE event_summary LIKE ?";
+			String sql = "SELECT * FROM yunshan_event WHERE event_summary LIKE ? LIMIT 0 , 10";
 			 preStmt = conn.prepareStatement(sql);
 			 
 			 preStmt.setString(1, "%"+content+"%");

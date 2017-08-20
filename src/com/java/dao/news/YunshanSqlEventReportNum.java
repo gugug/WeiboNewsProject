@@ -72,7 +72,7 @@ public class YunshanSqlEventReportNum {
 				commList.add(dateCommMap.get(dd));
 			}
 			yunshanEventReportNum = new YunshanEventReportNum(dateList,commList);
-			System.out.println(JSON.toJSON(yunshanEventReportNum));
+//			System.out.println("777777777777777777777"+JSON.toJSON(yunshanEventReportNum));
 		} catch (SQLException se) {
 			se.printStackTrace();
 		} catch (Exception e) {

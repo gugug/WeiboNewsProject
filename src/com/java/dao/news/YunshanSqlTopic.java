@@ -136,7 +136,7 @@ public class YunshanSqlTopic {
 		sb.append("?");
 		try {
 			conn = dbHelper.getYunshanConnection();
-			String sql = "SELECT * FROM yunshan_topic WHERE topic_id in ("+sb.toString()+")";
+			String sql = "SELECT * FROM yunshan_topic WHERE topic_id in ("+sb.toString()+") ORDER BY topic_datetime ASC";
 			preStmt = conn.prepareStatement(sql);
 			for (int i = 0; i < topicList.size(); i++){
 				preStmt.setInt(i+1, topicList.get(i));

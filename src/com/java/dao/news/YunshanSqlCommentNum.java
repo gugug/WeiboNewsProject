@@ -119,7 +119,7 @@ public class YunshanSqlCommentNum {
 
 		try {
 			conn = dbHelper.getYunshanConnection();
-			String sql = "SELECT * FROM yunshan_comment_num WHERE topic_id = ?";//ORDER BY trend_id ASC
+			String sql = "SELECT * FROM yunshan_comment_num WHERE topic_id = ? ORDER BY start_time ASC";//ORDER BY trend_id ASC
 			preStmt = conn.prepareStatement(sql);
 			preStmt.setString(1,topicId);
 			rs = preStmt.executeQuery();
@@ -142,7 +142,7 @@ public class YunshanSqlCommentNum {
 				date.add(startTime);
 			}
 			commentNum = new YunshanTopicCommNum(date, number);
-//			System.out.println(JSON.toJSON(commentNum));
+//			System.out.println("888888888888888888888"+JSON.toJSON(commentNum));
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} catch (Exception e) {
@@ -178,12 +178,13 @@ public class YunshanSqlCommentNum {
 	
 		try {
 			conn = dbHelper.getYunshanConnection();
-			String sql = "SELECT * FROM yunshan_comment_num WHERE topic_id = ?";
+			String sql = "SELECT * FROM yunshan_comment_num WHERE topic_id = ? ORDER BY start_time ASC";
 			preStmt = conn.prepareStatement(sql);
 			preStmt.setString(1,tid);
 			rs = preStmt.executeQuery();
 			
 			while (rs.next()) {
+				System.out.println(rs.getString("topic_id"));
 				int num0 = rs.getInt("emotion0");
 				int num1 = rs.getInt("emotion1");
 				int num2 = rs.getInt("emotion2");

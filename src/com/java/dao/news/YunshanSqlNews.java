@@ -100,7 +100,7 @@ public class YunshanSqlNews {
 			conn = dbHelper.getYunshanConnection();
 			;
 			String sql = "SELECT * FROM yunshan_news WHERE news_id in ("
-					+ sb.toString() + ")";
+					+ sb.toString() + ") ORDER BY news_datetime DESC";
 			preStmt = conn.prepareStatement(sql);
 			for (int i = 0; i < newsIdList.size(); i++) {
 				preStmt.setInt(i + 1, newsIdList.get(i));
