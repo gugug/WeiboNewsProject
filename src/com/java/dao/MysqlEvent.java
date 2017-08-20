@@ -7,10 +7,8 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.java.dao.news.YunshanSqlEventGeneral;
 import com.java.exception.CustomException;
 import com.java.po.Event;
-import com.java.po.YunshanEvent;
 
 public class MysqlEvent {
 
