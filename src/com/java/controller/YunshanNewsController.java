@@ -1,6 +1,7 @@
 package com.java.controller;
 
 import java.util.ArrayList;
+
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -9,9 +10,9 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.http.converter.json.MappingJacksonValue;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.alibaba.fastjson.JSON;
@@ -41,7 +42,6 @@ import com.java.po.YunshanTopComment;
 import com.java.po.YunshanTopic;
 import com.java.po.YunshanTopicCommNum;
 import com.java.po.YunshanTopicPageResult;
-import com.sun.net.httpserver.HttpServer;
 
 @Controller
 @RequestMapping("/news")
@@ -53,17 +53,18 @@ public class YunshanNewsController {
 	 * @return
 	 */
 	@RequestMapping(value = "/newsIndex",method = { RequestMethod.POST,RequestMethod.GET })
-	public @ResponseBody Object newsIndex(HttpServletRequest request, String callback, String text) throws Exception {
+	public @ResponseBody Object newsIndex(HttpServletRequest request, String callback, @RequestParam(defaultValue="") String text) throws Exception {
 		Map<String, String[]> parameterMap = request.getParameterMap(); //打印前端调用函数
 		System.out.println("----------------"+JSON.toJSON(parameterMap));
 		System.out.println("text:----------"+text);
 		YunshanSqlEvent yunshanSqlEvent = new YunshanSqlEvent();
 		List<YunshanEvent> yunshanEventList = null;
-		if (text != ""){
+		if (!text.equals("")){
 			yunshanEventList = yunshanSqlEvent.getYunEventListByKw(text);
 			if (yunshanEventList.size()==0){
 				System.out.println("搜索没有结果");
 				yunshanEventList = yunshanSqlEvent.getYunEventInfo();
+				
 			}
 		}else{
 			yunshanEventList = yunshanSqlEvent.getYunEventInfo();
@@ -164,7 +165,7 @@ public class YunshanNewsController {
 		System.out.println(JSON.toJSON(allCommentNum));//情感比例数据
 		
 		YunshanEmoCommNumWithTime emoCommNumWithTime = yunshanSqlCommentNum.getEmoCommNumWithTimeByTid(tid);
-		System.out.println(JSON.toJSON(emoCommNumWithTime));//情感随时间的评论量，前端待定
+		System.out.println("情感随时间---"+JSON.toJSON(emoCommNumWithTime));//情感随时间的评论量，前端待定
 		
 		YunshanTopicCommNum commentNum = yunshanSqlCommentNum.getCommentNumByTid(tid);
 		System.out.println(JSON.toJSON(commentNum)); //评论量数据
@@ -196,9 +197,9 @@ public class YunshanNewsController {
 	 */
 	@RequestMapping(value = "/newsNewsEmoDetail")
 	public @ResponseBody Object newsNewsEmoDetail(String callback, String tid, String emoid) throws Exception {
-		
+//		System.out.println("emoid"+emoid);
 		YunshanSqlTopComment yunshanSqlTopComment = new YunshanSqlTopComment();
-		List<YunshanTopComment> topCommList = yunshanSqlTopComment.getTopCommByTid(tid,emoid);
+		List<YunshanTopComment> topCommList = yunshanSqlTopComment.getTopCommByTid(tid,((Integer.parseInt(emoid)+1))+"");
 		System.out.println(JSON.toJSON(topCommList));//对应情感id的评论数据
 		
 		MappingJacksonValue mappingJacksonValue = new MappingJacksonValue(topCommList);
