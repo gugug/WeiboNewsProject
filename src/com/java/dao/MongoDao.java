@@ -51,6 +51,6 @@ public interface MongoDao {
 	 * @param newDoc
 	 */
 	public boolean update(MongoDatabase db, String table, BasicDBObject oldDoc,
-			BasicDBObject newDoc);
+                          BasicDBObject newDoc);
 
 }

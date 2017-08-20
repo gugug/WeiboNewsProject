@@ -1,14 +1,18 @@
 package com.java.dao;
 
+import java.util.ArrayList;
+
+import java.util.List;
+
 import com.mongodb.MongoClient;
-
-
+import com.mongodb.MongoCredential;
+import com.mongodb.ServerAddress;
 import com.mongodb.client.MongoDatabase;
 
 public class MongoHelper {
 	
 	    static final String DBName = "weibo";
-		static final String ServerAddress = "127.0.0.1"; 
+		static final String ServerAddress = "192.168.235.21"; 
 		static final int PORT = 27017;
 	    
 	    public MongoHelper(){
@@ -20,6 +24,19 @@ public class MongoHelper {
 			      // 连接到 mongodb 服务
 	    		mongoClient = new MongoClient(ServerAddress, PORT); 
 				System.out.println("Connect to mongodb successfully");
+/*
+				System.out.println("连接服务器测试.................");
+				ServerAddress serverAddress = new ServerAddress("localhost", 27017);
+				List<ServerAddress> seeds = new ArrayList<ServerAddress>();
+				seeds.add(serverAddress);
+				MongoCredential credentials = MongoCredential.createMongoCRCredential("root", "admin",
+						"root".toCharArray());
+				List<MongoCredential> credentialsList = new ArrayList<MongoCredential>();
+				credentialsList.add(credentials);
+				mongoClient = new MongoClient(seeds, credentialsList);
+				System.out.println("Connect to mongodb successfully");
+*/
+	    		
 	    	} catch (Exception e) {
 				System.err.println(e.getClass().getName() + ": " + e.getMessage());
 			}

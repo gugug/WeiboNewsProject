@@ -11,18 +11,18 @@ import com.mongodb.client.MongoDatabase;
 public class TestMongodbCon {
 	public static void main(String[] args) {
 	try {
-//		MongoClient mongoClient = new MongoClient("192.*.*.*",27017);
+//		MongoClient mongoClient = new MongoClient("192.168.235.21",27017);
 //		MongoDatabase database = mongoClient.getDatabase("test");
 //		database.createCollection("test1211");
 //		System.out.println("ok");
 		
 		
 		//密码
-		ServerAddress serverAddress = new ServerAddress("192.*.*.*",27017);
+		ServerAddress serverAddress = new ServerAddress("192.168.235.21",27017);
 		ArrayList<ServerAddress> addrs = new ArrayList<ServerAddress>();
 		addrs.add(serverAddress);
 		
-		MongoCredential createScramSha1Credential = MongoCredential.createScramSha1Credential("username", "dbname", "password".toCharArray());
+		MongoCredential createScramSha1Credential = MongoCredential.createScramSha1Credential("root", "test", "iiip".toCharArray());
 		
 		ArrayList<MongoCredential> credential = new ArrayList<MongoCredential>();
 		credential.add(createScramSha1Credential);

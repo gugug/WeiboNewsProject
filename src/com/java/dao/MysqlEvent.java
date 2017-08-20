@@ -7,8 +7,10 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.java.dao.news.YunshanSqlEventGeneral;
 import com.java.exception.CustomException;
 import com.java.po.Event;
+import com.java.po.YunshanEvent;
 
 public class MysqlEvent {
 
@@ -31,6 +33,52 @@ public class MysqlEvent {
 			rs = preStmt.executeQuery();
 			System.out.println(rs);
 			while (rs.next()) {
+				int eventId = rs.getInt("event_id");
+				String eventTitle  = rs.getString("event_title");
+				String explosionTime = rs.getString("explosion_time");
+				String keyWord = rs.getString("key_words");
+				int totalLikeNum = rs.getInt("total_like_num");
+				int totalCommentNum = rs.getInt("total_comment_num");
+				int totalRepostNum = rs.getInt("total_repost_num");
+
+				System.out.println("eventId: " + eventId);
+				System.out.println("eventTitle: " + eventTitle);
+				System.out.println("explosionTime: " + explosionTime);
+				System.out.println("keyWord: " + keyWord);
+				System.out.println("totalLikeNum:" + totalLikeNum);
+				System.out.println("totalCommentNum:" + totalCommentNum);
+				System.out.println("totalRepostNum:" + totalRepostNum);
+				eventList.add(new Event(eventId,eventTitle,explosionTime,keyWord,totalLikeNum,totalCommentNum,totalRepostNum));
+			}
+
+		} catch (SQLException se) {
+			se.printStackTrace();
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			dbHelper.closeAll(conn, preStmt, rs);
+		}
+		return eventList;
+	}
+	
+	public List<Event> getEventInfoByKW(String content) {
+
+		List<Event> eventList = new ArrayList<Event>();
+		PreparedStatement preStmt = null;
+		ResultSet rs = null;
+		Connection conn = null;
+		try {
+			conn = dbHelper.getConnection();
+			String sql = "SELECT * FROM event WHERE key_words LIKE ? LIMIT 0 , 10";
+			 preStmt = conn.prepareStatement(sql);
+			 
+			 preStmt.setString(1, "%"+content+"%");
+			 System.out.println(content);
+			 rs = preStmt.executeQuery();
+			 System.out.println(preStmt.toString());
+
+			while (rs.next()) {
+
 				int eventId = rs.getInt("event_id");
 				String eventTitle  = rs.getString("event_title");
 				String explosionTime = rs.getString("explosion_time");
@@ -112,6 +160,6 @@ public class MysqlEvent {
 	}
 
 	public static void main(String[] args) {
-		new MysqlEvent().getEventInfo();
+		new MysqlEvent().getEventInfoByKW("林丹");
 	}
 }

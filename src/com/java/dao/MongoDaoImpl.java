@@ -6,6 +6,7 @@ import java.util.Map;
 
 import org.bson.Document;
 
+import com.alibaba.fastjson.JSON;
 import com.java.exception.CustomException;
 import com.java.service.JsonStrToMap;
 import com.mongodb.BasicDBObject;
@@ -77,7 +78,7 @@ public class MongoDaoImpl implements MongoDao {
 	}
 	
 	/**
-	 *  检索全部并返回迭代器
+	 *  检索table下全部并返回list List<Map<String,Integer>> 
 	 * @param db
 	 * @param table
 	 */
@@ -107,6 +108,20 @@ public class MongoDaoImpl implements MongoDao {
 			System.out.println(user.toJson());
 		}
 		cursor.close();
+	}
+	
+	/**
+	 * 便利List<Map<String, Integer>>
+	 */
+	public void printList(List<Map<String, Integer>> result) {
+		if (result.size()==0){
+			System.out.println("没有查询到数据");
+		}else{
+			   for(Map m :result){
+			    	System.out.println(JSON.toJSON(m));
+				   }
+		}
+	
 	}
 	
 	
