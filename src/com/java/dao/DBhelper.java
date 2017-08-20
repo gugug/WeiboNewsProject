@@ -10,21 +10,12 @@ public class DBhelper {
 	
 	static final String JDBC_DRIVER = "com.mysql.jdbc.Driver";
 	
-//	static final String DB_URL = "jdbc:mysql://192.168.235.47:3306/weibo_news"; 
-//	static final String USER = "root";
-//	static final String PASS = "iiip";
+
 	
-//	static final String DB_URL = "jdbc:mysql://localhost:3306/weibo_news"; 
-//	static final String USER = "root";
-//	static final String PASS = "root";
-	
-	static final String DB_URL = "jdbc:mysql://192.168.235.20:3306/weibo_news?characterEncoding=utf8"; 
-	static final String USER = "root";
-	static final String PASS = "iiip";
-	
-//	static final String DB_URL = "jdbc:mysql://120.76.103.28:3306/weibo_news"; 
-//	static final String USER = "root";
-//	static final String PASS = "root";
+	static final String DB_URL = "jdbc:mysql://19**/db?characterEncoding=utf8";
+	static final String USER = "usernamepwd";
+	static final String PASS = "usernamepwd";
+
 
 	
 	private Connection conn;
@@ -55,11 +46,11 @@ public class DBhelper {
     	try {
 			Class.forName("com.mysql.jdbc.Driver");
 			System.out.println("正在连接...");
-			String DB_URL = "jdbc:mysql://192.168.235.36:3306/fig?zeroDateTimeBehavior=round&characterEncoding=utf8"; 
+			String DB_URL = "jdbc:mysql://19**/db?zeroDateTimeBehavior=round&characterEncoding=utf8";
 		//convertToNull  convertToNull  顾名思义，就是 转换成null，也即是Date t = getDate(); t是null
 		// round  MySQL使用全由0组成的DATETIME值来表示无效日期。
-			String USER = "fig";
-			String PASS = "fig";
+			String USER = "**";
+			String PASS = "**";
 			conn = DriverManager.getConnection(DB_URL, USER, PASS);
 		} catch (Exception e) {
 			e.printStackTrace();
