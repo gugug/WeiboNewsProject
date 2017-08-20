@@ -20,38 +20,16 @@ import org.w3c.dom.NodeList;
  *
  */
 public class XmlFileUtil {
-	
+	//生成json文件所需
 	public List<List<String>> keyWordList = new ArrayList<List<String>>();//value是评论关键词
 
 	public static void main(String[] args) {
-		String path = "./Documents/result/1.xml";
+		String path = "./Documents/result/311.xml";
 		XmlFileUtil xmlFileUtil = new XmlFileUtil();
 		List<String> loadXml =xmlFileUtil.loadXml(path);
+		System.out.println(loadXml);
 	}
 
-//	//包装成topic需要的json数据格式
-//	public Object getTopicJson(){
-//		ArrayList<HashMap<String, Object>> resultList = new ArrayList<HashMap<String, Object>>();
-//		HashMap<String, Object> resultMap = new HashMap<String,Object>();
-//
-//		for (int i = 0; i < keyWordList.size(); i++){
-//			HashMap<String, Object> tempMap = new HashMap<String,Object>();
-//			System.out.println(keyWordList.get(i));
-//			ArrayList<HashMap<String, Object>> kwList = new ArrayList<HashMap<String, Object>>();
-//			for (int j = 0; j < keyWordList.get(i).size();j++){
-//				HashMap<String, Object> kwMap = new HashMap<String,Object>();
-//				kwMap.put("name", keyWordList.get(i).get(j));
-//				kwMap.put("size", 1);
-//				kwList.add(kwMap);
-//			}
-//			tempMap.put("name","话题"+i);
-//			tempMap.put("children", kwList);
-//			resultList.add(tempMap);
-//		}
-//		resultMap.put("name", "林丹事件");
-//		resultMap.put("children", resultList);
-//		return JSON.toJSON(resultMap);
-//	}
 	
 	/**
 	 * 读取xml的文件内容，并加载
@@ -67,7 +45,6 @@ public class XmlFileUtil {
 		
 		List<String> topicList = new ArrayList<String>();//用于存放拼接字符串，显示前端
 		
-		new HashMap<String,String>();
 		try {
 			// 返回documentBuilderFactory对象
 			dbf = DocumentBuilderFactory.newInstance();

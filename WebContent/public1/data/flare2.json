@@ -1,0 +1,30 @@
+{
+ "name": "flare11",
+  "children": [{
+  
+  
+    "name": "analytics",
+    "children": [{
+    
+      "name": "cluster",
+      "children": [{
+        "name": "AgglomerativeCluster"
+      }]
+    }, {
+      "name": "graph",
+      "children": [{
+        "name": "BetweennessCentrality"
+      }]
+    }]
+  },
+  
+   {
+    "name": "flex",
+    "children": [{
+      "name": "FlareVis"
+    }]
+    
+    
+    
+  }]
+}

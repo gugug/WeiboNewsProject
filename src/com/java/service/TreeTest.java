@@ -50,13 +50,12 @@ public class TreeTest {
         this.children = children;
     }
     
-    @Override
+	@Override
     public String toString() {
         return "TreeTest [id=" + id + ", pId=" + pId + ", name=" + name
                 + ", children=" + children + "]";
     }
     
-
    
     //递归树
     public static List<TreeTest> getChildren(Map<Integer,TreeTest> trees,Integer id,Integer leve){
@@ -64,7 +63,7 @@ public class TreeTest {
 
         for (TreeTest tree : trees.values()) {
             if(id == tree.getpId()){            
-                System.out.println("-递归" + tree.toString());
+//                System.out.println("-递归" + tree.toString());
                 List<TreeTest> chidren = getChildren(trees,tree.getId(),++leve);
                 list.add(tree);//本身
                 tree.setChildren(chidren);//子节点
@@ -77,7 +76,6 @@ public class TreeTest {
 
     
     //测试数据
-    
     public static void main(String[] args) {
         Map<Integer,TreeTest> map = new HashMap<Integer,TreeTest>();
         

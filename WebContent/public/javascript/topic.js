@@ -3,7 +3,6 @@
  */
 function getTopic(jsonPath){
 	
-
 var svg = d3.select("svg")
     margin = 20,
     diameter = +svg.attr("width" ),

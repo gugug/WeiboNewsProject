@@ -5,6 +5,7 @@ import java.util.HashMap;
 import java.util.List;
 
 import com.alibaba.fastjson.JSON;
+import com.java.config.PathConfig;
 import com.java.po.TopicObj;
 
 /**
@@ -15,21 +16,25 @@ import com.java.po.TopicObj;
 public class TopicJson {
 	
 	public static void main(String[] args) {
-		String path = "./Documents/result/3.xml";
+		String path = PathConfig.ROOT_PATH+PathConfig.TOPIC_XML_PATH+"topic3.xml";
+		
 		XmlFileUtil xmlFileUtil = new XmlFileUtil();
 		xmlFileUtil.loadXml(path);
-		Object topicJson = getTopicJson(xmlFileUtil.keyWordList);
-		System.out.println(topicJson);
-		FileUtil.rwFile(topicJson.toString(), "./Documents/result", "4.json");
+		new TopicJson().writeTopicJson(xmlFileUtil, "topic3.json");
 	}
 	
+	
+	public void writeTopicJson(XmlFileUtil xmlFileUtil, String fileName){
+		Object topicJson = getTopicJson(xmlFileUtil.keyWordList);
+		FileUtil.rwFile(topicJson.toString(), PathConfig.ROOT_PATH+PathConfig.TOPIC_JSON_PATH, fileName);
+	}
 
 	/**
 	 * 打包返回topic的json数据格式
 	 * @param keyWordList
 	 * @return
 	 */
-	public static Object getTopicJson(List<List<String>>  keyWordList){
+	public Object getTopicJson(List<List<String>>  keyWordList){
 		HashMap<String, Object> resultMap = new HashMap<String,Object>();
 		ArrayList<TopicObj> topicObjList = new ArrayList<TopicObj>();
 

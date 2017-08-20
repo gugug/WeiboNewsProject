@@ -8,8 +8,8 @@
     <div id="navigation">
         <div id="top_nvg">
             <div id="logo">
-                <a href="../weibo/weiboMain.action"><img src="../public/images/logo.png" width="62%"/></a>
-                <p>YUNSHAN</p>
+            <!--     <a href="../weibo/weiboMain.action"><img src="../public/images/logo.png" width="62%"/></a>
+ -->                <p>云山舆情</p>
             </div>
         </div>
         <div id="mid_nvg">
@@ -18,7 +18,9 @@
             </div>
             <div id="weibo_name">微博平台分析</div>
         </div>
-        <div><a href="../event/index.action">首页</a></div>
+          <div><a href="http://iiip.gdufs.edu.cn/WeiboNewsProject/xinwen/">新闻端首页</a></div>
+            <div><a href="http://iiip.gdufs.edu.cn/WeiboNewsProject/weibo/weiboMain.action">微博端首页</a></div>
+        
         <div id="bot_nvg">
             <ul id="page">
                 <li class="item"><a  href="../weibo/weiboNews.action?eid=${eid }">

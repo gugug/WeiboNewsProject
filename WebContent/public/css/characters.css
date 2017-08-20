@@ -1,0 +1,23 @@
+#user_property{
+    height: 520px;
+}
+#characters{
+    position: relative;
+    width:100%;
+    height: 470px;
+    overflow: hidden;
+}
+#age{
+    position: absolute;
+    width: 45%;
+    top: 40px;
+    bottom: 25px;
+    left: 10px;
+}
+#gender{
+    position: absolute;
+    width:50%;
+    top: 40px;
+    bottom: 65px;
+    right:0;
+}

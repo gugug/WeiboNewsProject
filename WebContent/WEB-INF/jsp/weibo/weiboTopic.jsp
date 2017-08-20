@@ -43,7 +43,7 @@
         </div>
     </div>
     <div id="footer">
-        <p>copyright@广东外语外贸大学数据挖掘实验室</p>
+            <p>©2016广东外语外贸大学 智能信息处理研究所 数据挖掘实验室 保留所有权利 关于我们</p>
     </div>
 </div>
 <script src="../public/javascript/jquery-3.1.1.min.js"></script>

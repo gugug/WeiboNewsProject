@@ -1,0 +1,46 @@
+#translation{
+    height: 620px;
+}
+#translate_chain{
+    width: 100%;
+    height: 570px;
+    overflow: hidden;
+}
+.node {
+    cursor: pointer;
+}
+
+.overlay{
+    background-color:#fff;
+}
+
+.node circle {
+    fill: #FF6633;
+    stroke: #FF6633;
+    stroke-width: 3.5px;
+}
+
+.node text {
+    font-size:15px;
+    font-family:"\5FAE\8F6F\96C5\9ED1";
+}
+
+.link {
+    fill: none;
+    stroke:#DC3737;
+    stroke-width: 2px;
+}
+
+/*.templink {*/
+    /*fill: none;*/
+    /*stroke: red;*/
+    /*stroke-width: 3px;*/
+/*}*/
+
+/*.ghostCircle.show{*/
+    /*display:block;*/
+/*}*/
+
+/*.ghostCircle, .activeDrag .ghostCircle{*/
+    /*display: none;*/
+/*}*/
